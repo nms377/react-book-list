@@ -7,7 +7,7 @@ class App extends Component {
   constructor(){
     super();
     this.state ={
-      BookList
+      book: BookList
     }
   }
 
@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <ul className="App">
         {
-          this.state.BookList.map( ( { title, author } ) =>
+          this.state.book.map( ( { title, author } ) =>
             <BookListAppTitle
               key={title}
               title={title}
