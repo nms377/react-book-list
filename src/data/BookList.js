@@ -1,10 +1,10 @@
-const bookList = [
+const BookList = [
 	{
 		title: 'Book List App',
 		author: 'Sumgai'
 	},
 	{
-		title: 'Essentialism: The Discplined Pursuit',
+		title: 'Essentialism: The Disciplined Pursuit of Less',
 		author: 'Greg McKeown'
 	},
 	{
@@ -13,4 +13,4 @@ const bookList = [
 	}
 ];
 
-export default bookList;
+export default BookList;
