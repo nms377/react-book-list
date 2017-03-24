@@ -7,11 +7,18 @@ import './styles.css';
 import { createStore } from 'redux';
 
 // import reducer
-import books from './reducers';
+import books from '../../reducers';
+
+// import actions
+import { addBook } from '../../actions';
 
 // create store
 // pass reducer to store
-let store = createdStore(books);
+let store = createStore(books);
+
+store.dispatch(addBook('HACK THE PLANET', 'BORGZ'));
+
+console.log(store.getState(books));
 
 class App extends Component {
   constructor(){
