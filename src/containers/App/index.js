@@ -1,29 +1,62 @@
 import React, { Component } from 'react';
 import BookListAppTitle from '../../components/BookListAppTitle.js';
 import BookList from '../../data/BookList.js';
+import AddBook from '../Form';
 import './styles.css';
+
+import { createStore } from 'redux';
+
+// import reducer
+import books from './reducers';
+
+// create store
+// pass reducer to store
+let store = createdStore(books);
 
 class App extends Component {
   constructor(){
     super();
     this.state ={
-      book: BookList
+      book: []
     }
+  }
+
+  XHRRequest() {
+    return new Promise((resolve, reject) => {
+      resolve(BookList)
+    })
+  }
+
+  addBook = (book) => {
+    this.setState({
+      books: this.state.books.concat([book])
+    })
+  }
+
+  componentWillMount() {
+    this.XHRRequest().then(book => {
+      this.setState({
+        book
+      })
+    })
   }
 
   render() {
     return (
-      <ul className="App">
-        {
-          this.state.book.map( ( { title, author } ) =>
-            <BookListAppTitle
-              key={title}
-              title={title}
-              author={author}
-            />
-          )
-        }
-      </ul>
+      <div className="App">
+        <ul>
+          {
+            this.state.book.map( ( { title, author } ) =>
+              <BookListAppTitle
+                key={title}
+                title={title}
+                author={author}
+              />
+            )
+          }
+        </ul>
+        <AddBook addBook={this.addBook}/>
+      </div>
     );
   }
 }
