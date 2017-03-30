@@ -2,7 +2,7 @@ import React from 'react';
 
 const AddBook = (props) => (
 
-  <form>
+  <form onSubmit={props.handleSubmit}>
   <label>
     Title:
     <input type="text" onChange={props.handleChange}/>
@@ -11,7 +11,7 @@ const AddBook = (props) => (
     Author:
     <input type="text" onChange={props.handlChange}/>
   </label>
-  <button type="submit" onSubmit={props.handleSubmit}>Add Book</button>
+  <button type="submit" >Add Book</button>
 	</form>
 
 )
